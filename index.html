@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTF - Name your task</title>
+    <style>
+        body {
+            font-family: 'Asap', 'Trebuchet MS', Arial, sans-serif;
+            font-size: larger;
+            background-image: url(assets/katsuragi-transparent35.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: top;
+        }
+
+        .container {
+            margin: auto;
+            margin-top: 10%;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 10px;
+            background-color: rgb(255, 69, 44);
+            text-align: center;
+        }
+
+        .container h1 {
+            font-family: 'IM Fell English SC', serif;
+            font-size: 1.45em;
+        }
+
+        input {
+            display: block;
+            /* blocks occupy the entire width, nothing comes aside of an element with display : block */
+            box-sizing: border-box;
+            /*the given dimmensions account padding (100px width represents content + padding)*/
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            width: 70px;
+            height: 50px;
+            border: solid 1px;
+            border-radius: 10px;
+        }
+
+        .result {
+            font-size: 0.5 em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <h1>JTF - Name your tasks!</h1>
+        <h5>Descreva a tarefa, projeto de referência e duração nos campos abaixo:</h5>
+        <input type="text" id='tarefa' onkeyup='updateText()'
+            placeholder="Descrição da tarefa (ex.: Enviar relatório...)">
+        <input type="text" id='projeto' onkeyup='updateText()' placeholder="Projeto de referência">
+        <input type="number" id="duracao" onkeyup='updateText()' min="1" placeholder="Duração (em horas)">
+
+        <section class="result" id="task">
+            
+        </section>
+</body>
+
+<script>
+
+    var projeto = document.getElementById('projeto').value
+    var tarefa = document.getElementById('tarefa').value
+    var duracao = document.getElementById('duracao').value
+
+    function updateNames() {
+        projeto = document.getElementById('projeto').value
+        tarefa = document.getElementById('tarefa').value
+        duracao = document.getElementById('duracao').value
+    }
+    function updateText() {
+        updateNames();
+        let finalText = `[${projeto}] - ${tarefa} - [${duracao}h]`
+        let taskSection = document.getElementById("task")
+        taskSection.innerText = finalText
+    }
+    function copyText() {
+
+    }
+</script>
+
+</html>
